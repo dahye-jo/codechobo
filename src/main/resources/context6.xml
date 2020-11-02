@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+<!-- 기본생성자를 호출 -->
+	<bean id="car" class="com.codechobo.app6.SportsCar">
+<!-- oil의 타입은 int이지만 spring이 "100"을 100으로 자동 변환해준다. -->
+<!-- <property>는 해당 객체의 setter를 호출한다. setter가 필수 -->
+		<property name="oil" value="100"/>
+		<property name = "engine" ref="engine"/>
+		<property name="doors" ref="door"/>
+	</bean>	
+	<bean id="engine" class="com.codechobo.app6.Engine"></bean>
+	<bean id="door" class="com.codechobo.app6.Door" scope="prototype"></bean>
+	<context:annotation-config/>
+
+</beans>
